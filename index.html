@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מַתסיסים · בלוג התססה ביתית</title>
+<meta name="description" content="מדריך פשוט להתססה ביתית: היסטוריה, שיטות, ציוד, מחשבון מלח ומתכונים שעובדים במטבח רגיל.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;
+  --cream:#FBF6EE;
+  --cream2:#F6EFE4;
+  --ink:#272320;
+  --muted:#76706A;
+  --line:#ECE4D8;
+  --brand:#E0613E;
+  --brand-deep:#C24A2A;
+  --green:#3F8C63;
+  --green-soft:#EAF1EA;
+  --mustard:#E0A93D;
+  --teal:#3E9B96;
+  --plum:#9A5B72;
+  --shadow:0 2px 4px rgba(39,35,32,.04),0 10px 30px rgba(39,35,32,.07);
+  --shadow-lg:0 18px 50px rgba(39,35,32,.16);
+  --r:22px;
+  --maxread:680px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{background:var(--bg);color:var(--ink);font-family:'Assistant',system-ui,sans-serif;font-weight:400;font-size:18.5px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Rubik',system-ui,sans-serif;font-weight:800;line-height:1.15;letter-spacing:-.4px;color:var(--ink)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+.read{max-width:var(--maxread);margin-inline:auto}
+
+/* IMAGE PLACEHOLDERS */
+.imgwrap{position:relative;width:100%;border-radius:var(--r);overflow:hidden;background:var(--cream2)}
+.imgwrap.r-hero{aspect-ratio:4/5}
+.imgwrap.r-wide{aspect-ratio:16/10}
+.imgwrap.r-card{aspect-ratio:4/3}
+.imgwrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:2}
+.placeholder{position:absolute;inset:0;z-index:1;display:grid;place-items:center;text-align:center;color:#B9AE9E;background:
+   repeating-linear-gradient(45deg,rgba(0,0,0,.012) 0 14px,transparent 14px 28px),var(--cream2)}
+.placeholder.green{background:repeating-linear-gradient(45deg,rgba(63,140,99,.05) 0 14px,transparent 14px 28px),var(--green-soft)}
+.placeholder.brand{background:repeating-linear-gradient(45deg,rgba(224,97,62,.05) 0 14px,transparent 14px 28px),#FBEDE7}
+.placeholder.mustard{background:repeating-linear-gradient(45deg,rgba(224,169,61,.06) 0 14px,transparent 14px 28px),#FCF3DF}
+.placeholder .ic{font-size:30px;opacity:.55;display:block;margin-bottom:6px}
+.placeholder small{font-size:13.5px;font-weight:600;color:#A99C8B;padding:0 16px;display:block}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:flex;align-items:center;gap:9px;font-family:'Rubik',sans-serif;font-weight:900;font-size:24px}
+.brand .dot{width:13px;height:13px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px rgba(224,97,62,.16)}
+.nav-links{display:flex;gap:2px;align-items:center}
+.nav-links a{padding:9px 13px;border-radius:10px;font-family:'Rubik',sans-serif;font-size:15px;font-weight:500;color:var(--muted);transition:.16s}
+.nav-links a:hover{color:var(--ink);background:var(--cream)}
+.nav-links a.navcta{background:var(--ink);color:#fff;font-weight:600;padding:9px 18px;margin-inline-start:6px}
+.nav-links a.navcta:hover{background:var(--brand)}
+.burger{display:none;background:none;border:0;cursor:pointer;font-size:26px;color:var(--ink)}
+
+/* HERO */
+.hero{padding:58px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-family:'Rubik',sans-serif;font-weight:600;font-size:14px;color:var(--brand);background:#FBEDE7;padding:7px 15px;border-radius:999px;margin-bottom:22px}
+.hero h1{font-size:clamp(40px,5.6vw,64px);font-weight:900;line-height:1.05;margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--brand)}
+.hero .lead{font-size:21px;color:var(--muted);margin-bottom:30px;max-width:520px;line-height:1.6}
+.cta{display:flex;gap:13px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;font-family:'Rubik',sans-serif;font-weight:600;font-size:16px;cursor:pointer;border:0;transition:.2s}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 10px 24px rgba(224,97,62,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(224,97,62,.4)}
+.btn-ghost{background:var(--cream);color:var(--ink);border:1px solid var(--line)}
+.btn-ghost:hover{background:var(--cream2)}
+.hero-img{position:relative}
+.hero-img .imgwrap{box-shadow:var(--shadow-lg)}
+.hero-badge{position:absolute;bottom:-18px;inset-inline-start:-18px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:11px;font-family:'Rubik',sans-serif}
+.hero-badge .n{font-size:30px;font-weight:900;color:var(--green);line-height:1}
+.hero-badge .t{font-size:13.5px;color:var(--muted);font-family:'Assistant',sans-serif;font-weight:600}
+.facts{display:flex;gap:26px;flex-wrap:wrap;margin-top:44px;padding-top:30px;border-top:1px solid var(--line)}
+.facts div{font-family:'Rubik',sans-serif}
+.facts .num{font-size:26px;font-weight:800;color:var(--ink)}
+.facts .lbl{font-size:14px;color:var(--muted);font-family:'Assistant',sans-serif;font-weight:600}
+
+/* SECTION */
+section{padding:70px 0}
+.cream{background:var(--cream)}
+.sec-head{max-width:620px;margin:0 auto 48px;text-align:center}
+.tag{display:inline-block;font-family:'Rubik',sans-serif;font-weight:600;letter-spacing:.04em;font-size:13px;color:var(--green);text-transform:uppercase;margin-bottom:12px}
+.sec-head h2{font-size:clamp(30px,4.4vw,44px)}
+.sec-head p{color:var(--muted);margin-top:14px;font-size:19px}
+
+/* SPLIT (text + image) */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.split.flip .col-txt{order:2}
+.prose p{margin-bottom:18px}
+.prose h3{font-family:'Rubik',sans-serif;font-size:25px;margin:30px 0 12px}
+.prose strong{font-weight:700;color:var(--ink)}
+.pull{border-inline-start:4px solid var(--brand);background:var(--cream);border-radius:0 14px 14px 0;padding:18px 22px;margin:26px 0;font-size:21px;font-weight:500;line-height:1.45;font-family:'Rubik',sans-serif;font-weight:500}
+
+/* CARDS */
+.grid{display:grid;gap:22px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:var(--shadow);transition:.22s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.card .ic{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;font-size:26px;margin-bottom:14px}
+.card h3{font-family:'Rubik',sans-serif;font-size:20px;margin-bottom:7px}
+.card p{font-size:15.5px;color:var(--muted);line-height:1.6}
+
+/* METHODS */
+.method{display:grid;grid-template-columns:60px 1fr;gap:18px;align-items:start;background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:var(--shadow);margin-bottom:16px;transition:.2s}
+.method:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+.method .num{width:60px;height:60px;border-radius:16px;display:grid;place-items:center;font-family:'Rubik',sans-serif;font-weight:900;font-size:28px;color:#fff}
+.method h3{font-family:'Rubik',sans-serif;font-size:22px;margin-bottom:5px}
+.method p{color:var(--muted);font-size:16px}
+.method .when{display:inline-block;margin-top:10px;font-size:13.5px;font-weight:600;color:var(--ink);background:var(--cream2);padding:5px 13px;border-radius:999px}
+
+/* MYTHS */
+.myth{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+.myth .top{display:flex;gap:12px;align-items:flex-start;padding:22px 24px 14px}
+.myth .x{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:#FBE2DA;color:var(--brand);display:grid;place-items:center;font-weight:800;font-family:'Rubik',sans-serif}
+.myth .top h3{font-family:'Rubik',sans-serif;font-size:18px;color:var(--muted);font-weight:500;text-decoration:line-through;text-decoration-color:rgba(224,97,62,.45)}
+.myth .bot{display:flex;gap:12px;align-items:flex-start;padding:14px 24px 22px;background:var(--green-soft)}
+.myth .v{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:#D5E6D9;color:var(--green);display:grid;place-items:center;font-weight:800;font-family:'Rubik',sans-serif}
+.myth .bot p{font-size:16px}
+.myth .bot strong{color:var(--green);font-weight:700}
+
+/* CALC */
+.calc{background:var(--bg);border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow-lg);overflow:hidden;display:grid;grid-template-columns:1fr 1fr;max-width:880px;margin:0 auto}
+.calc .form{padding:36px}
+.calc .out{padding:36px;background:linear-gradient(150deg,#2E2A26,#46403A);color:#fff;display:flex;flex-direction:column;justify-content:center}
+.calc label{display:block;font-family:'Rubik',sans-serif;font-weight:600;font-size:15px;margin:18px 0 8px}
+.calc label:first-child{margin-top:0}
+.calc input[type=number]{width:100%;padding:14px 16px;border:1.5px solid var(--line);border-radius:13px;font-family:inherit;font-size:18px;background:var(--cream)}
+.calc input:focus{outline:none;border-color:var(--brand)}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg button{flex:1;min-width:62px;padding:12px 6px;border:1.5px solid var(--line);background:var(--cream);border-radius:12px;cursor:pointer;font-family:'Rubik',sans-serif;font-weight:600;font-size:15px;color:var(--muted);transition:.15s}
+.seg button.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.seg.small button{font-size:14px;padding:10px 6px}
+.out .sub{color:#D7CCBE;font-size:16px}
+.out .big{font-family:'Rubik',sans-serif;font-weight:900;font-size:66px;line-height:1.05;color:var(--mustard);margin:6px 0}
+.out .big span{font-size:25px;color:#fff;font-weight:600}
+.out .note{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.16);font-size:14.5px;color:#CABFB1;line-height:1.6}
+.refgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px;max-width:880px;margin-inline:auto}
+.ref{background:var(--bg);border:1px solid var(--line);border-radius:15px;padding:18px 20px}
+.ref .k{font-size:14px;color:var(--muted);font-weight:600}
+.ref .val{font-family:'Rubik',sans-serif;font-weight:800;font-size:23px;margin-top:3px;color:var(--brand)}
+.principles{max-width:var(--maxread);margin:40px auto 0}
+
+/* RECIPES */
+.filters{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:38px}
+.chip{padding:10px 19px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);cursor:pointer;font-family:'Rubik',sans-serif;font-weight:500;font-size:15px;color:var(--muted);transition:.16s}
+.chip:hover{border-color:var(--ink);color:var(--ink)}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.rcard{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);cursor:pointer;transition:.22s;display:flex;flex-direction:column}
+.rcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.rcard .imgwrap{border-radius:0}
+.rcard .cat{position:absolute;top:12px;inset-inline-start:12px;z-index:3;background:rgba(255,255,255,.94);color:var(--ink);font-family:'Rubik',sans-serif;font-weight:600;font-size:12.5px;padding:5px 12px;border-radius:999px;box-shadow:var(--shadow)}
+.rcard .body{padding:20px 22px 22px;flex:1;display:flex;flex-direction:column}
+.rcard h3{font-family:'Rubik',sans-serif;font-size:21px;margin-bottom:7px}
+.rcard .desc{font-size:15px;color:var(--muted);line-height:1.55;flex:1}
+.rcard .foot{display:flex;align-items:center;gap:8px;margin-top:15px;font-size:13.5px;color:var(--muted);font-weight:600}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.t{font-family:'Rubik',sans-serif;font-size:12px;font-weight:600;padding:4px 11px;border-radius:999px}
+.t.brine{background:rgba(62,155,150,.13);color:#2E7B77}
+.t.self{background:rgba(63,140,99,.14);color:var(--green)}
+.t.high{background:rgba(224,97,62,.13);color:var(--brand-deep)}
+.t.acetic{background:rgba(224,169,61,.18);color:#A9781F}
+.t.none{background:rgba(154,91,114,.14);color:var(--plum)}
+.t.meta{background:var(--cream2);color:var(--muted)}
+
+/* DIBS CALLOUT */
+.callout{background:linear-gradient(135deg,#fff,var(--cream));border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:var(--shadow-lg);display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.callout .imgwrap{border-radius:0;height:100%}
+.callout .c-txt{padding:48px}
+.callout .c-txt .tag{color:var(--plum)}
+.callout h2{font-size:34px;margin-bottom:14px}
+.callout p{color:var(--muted);margin-bottom:22px;font-size:18px}
+
+/* NEWSLETTER */
+.news{background:var(--ink);color:#fff;border-radius:28px;padding:54px 40px;text-align:center;max-width:880px;margin:0 auto}
+.news h2{color:#fff;font-size:32px;margin-bottom:12px}
+.news p{color:#C7BCAE;margin-bottom:26px;max-width:480px;margin-inline:auto}
+.news form{display:flex;gap:10px;max-width:460px;margin:0 auto;flex-wrap:wrap}
+.news input{flex:1;min-width:200px;padding:15px 18px;border:0;border-radius:999px;font-family:inherit;font-size:16px}
+.news .btn-primary{box-shadow:none}
+
+/* MODAL */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:flex-start;justify-content:center;padding:36px 16px;overflow-y:auto}
+.modal.open{display:flex}
+.modal .bg{position:fixed;inset:0;background:rgba(39,35,32,.58);backdrop-filter:blur(3px)}
+.sheet{position:relative;background:var(--bg);max-width:720px;width:100%;border-radius:26px;box-shadow:var(--shadow-lg);overflow:hidden;animation:pop .25s ease}
+@keyframes pop{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.sheet .hero-ph .imgwrap{border-radius:0;aspect-ratio:16/9}
+.sheet .close{position:absolute;top:16px;left:16px;z-index:5;width:42px;height:42px;border-radius:50%;border:0;background:rgba(255,255,255,.95);box-shadow:var(--shadow);cursor:pointer;font-size:20px;color:var(--ink)}
+.sheet .hd{padding:26px 36px 0}
+.sheet .hd .tags{margin-bottom:10px}
+.sheet .hd h2{font-size:31px}
+.sheet .meta-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px;padding:16px 18px;background:var(--cream);border-radius:15px}
+.sheet .meta-row div{font-size:14px}
+.sheet .meta-row b{display:block;font-family:'Rubik',sans-serif;font-weight:700;font-size:17px;color:var(--ink)}
+.sheet .meta-row span{color:var(--muted)}
+.sheet .bd{padding:6px 36px 36px}
+.sheet .sect-t{font-family:'Rubik',sans-serif;font-weight:700;font-size:18px;margin:26px 0 10px;color:var(--brand);display:flex;align-items:center;gap:8px}
+.sheet ul{list-style:none}
+.sheet .ing li{padding:9px 0;border-bottom:1px dashed var(--line);font-size:16.5px}
+.sheet .steps{counter-reset:s}
+.sheet .steps li{counter-increment:s;position:relative;padding:11px 0;padding-inline-start:44px;font-size:16.5px;line-height:1.6}
+.sheet .steps li:before{content:counter(s);position:absolute;inset-inline-start:0;top:9px;width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-family:'Rubik',sans-serif;font-weight:700;font-size:15px}
+.sheet .tip{margin-top:20px;background:#FCF3DF;border-radius:15px;padding:16px 18px;font-size:15.5px;line-height:1.6}
+.sheet .tip b{color:#A9781F}
+.sheet .printbtn{margin-top:22px;width:100%;justify-content:center;background:var(--cream);color:var(--ink);border:1px solid var(--line)}
+.sheet .printbtn:hover{background:var(--cream2)}
+
+/* FOOTER */
+footer{background:var(--cream);border-top:1px solid var(--line);padding:58px 0 38px;margin-top:10px}
+footer h3{font-family:'Rubik',sans-serif;font-size:24px;margin-bottom:14px}
+footer p{color:var(--muted);font-size:16px;max-width:580px}
+footer a.link{color:var(--brand);font-weight:600}
+.flinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.flinks a{font-family:'Rubik',sans-serif;font-size:14.5px;font-weight:500;background:var(--bg);border:1px solid var(--line);padding:9px 16px;border-radius:999px;color:var(--ink)}
+.flinks a:hover{border-color:var(--brand);color:var(--brand)}
+.fnote{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:.6s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:920px){
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+  .hero-img{max-width:440px}
+  .split{grid-template-columns:1fr;gap:30px}
+  .split.flip .col-txt{order:0}
+  .split .col-img{max-width:520px}
+  .g4,.g3,.rgrid{grid-template-columns:repeat(2,1fr)}
+  .calc,.callout{grid-template-columns:1fr}
+  .callout .imgwrap{aspect-ratio:16/10}
+  .nav-links{display:none}
+  .burger{display:block}
+  .nav-links.show{display:flex;position:absolute;top:70px;inset-inline:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line);padding:12px 18px;gap:2px}
+  .nav-links.show a{padding:13px}
+  .nav-links.show a.navcta{margin:6px 0 0;text-align:center}
+}
+@media(max-width:560px){
+  body{font-size:17.5px}
+  .g4,.g3,.g2,.rgrid,.refgrid{grid-template-columns:1fr}
+  .method{grid-template-columns:1fr}
+  section{padding:52px 0}
+  .sheet .hd,.sheet .bd{padding-left:22px;padding-right:22px}
+  .callout .c-txt,.news{padding:32px 24px}
+}
+@media print{
+  body *{visibility:hidden}
+  .modal,.modal *{visibility:visible}
+  .modal{position:absolute;inset:0;padding:0;display:block}
+  .modal .bg,.sheet .close,.sheet .printbtn{display:none!important}
+  .sheet{box-shadow:none;max-width:100%}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand"><span class="dot"></span>מַתסיסים</a>
+    <button class="burger" id="burger" aria-label="תפריט">☰</button>
+    <div class="nav-links" id="navlinks">
+      <a href="#history">היסטוריה</a>
+      <a href="#science">איך זה עובד</a>
+      <a href="#methods">שיטות</a>
+      <a href="#gear">ציוד</a>
+      <a href="#myths">מיתוסים</a>
+      <a href="#calc">מחשבון</a>
+      <a href="#recipes" class="navcta">למתכונים</a>
+    </div>
+  </div>
+</nav>
+
+<div id="top"></div>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-txt">
+      <span class="kicker">🫙 בלוג התססה ביתית</span>
+      <h1>מתסיסים בבית.<br><em>קל יותר</em> ממה<br>שחשבתם.</h1>
+      <p class="lead">כל מה שצריך כדי להתחיל זה קצת מלח, צנצנת, והחיידקים שכבר יושבים על הירקות ועל הידיים שלכם. כאן ריכזתי את הרקע, את השיטות, ואת המתכונים שעובדים גם במטבח רגיל.</p>
+      <div class="cta">
+        <a href="#recipes" class="btn btn-primary">למתכונים 🥬</a>
+        <a href="#science" class="btn btn-ghost">קודם להבין איך</a>
+      </div>
+      <div class="facts">
+        <div><div class="num">11</div><div class="lbl">מתכונים</div></div>
+        <div><div class="num">3</div><div class="lbl">שיטות התססה</div></div>
+        <div><div class="num">1</div><div class="lbl">כלל זהב: בלי חמצן</div></div>
+      </div>
+    </div>
+    <div class="hero-img">
+      <div class="imgwrap r-hero">
+        <div class="placeholder green"><div><span class="ic">📷</span><small>תמונת נושא: צנצנות התססה צבעוניות על שולחן</small></div></div>
+        <img src="images/hero.jpg" alt="צנצנות התססה צבעוניות על שולחן" onerror="this.style.display='none'">
+      </div>
+      <div class="hero-badge"><span class="n">10</span><span class="t">ימים עד הצנצנת<br>הראשונה שלכם</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- HISTORY -->
+<section id="history" class="cream">
+  <div class="wrap">
+    <div class="split reveal">
+      <div class="col-txt prose">
+        <span class="tag">פרק ראשון</span>
+        <h2 style="font-size:clamp(28px,4vw,40px);margin-bottom:18px">שימור מזון, סיפור של אלפי שנים</h2>
+        <p>לפני המקפיאים, לפני השימורים בקופסה, לפני חומרי השימור התעשייתיים, לאנשים הייתה בעיה אחת פשוטה. איך לוקחים את מה שגדל בקיץ ומחזיקים אותו עד החורף. את התשובה הם מצאו אצל החיידקים.</p>
+        <p>בכל מקום בעולם פיתחו את הגרסה המקומית. קימצ'י בקוריאה, כרוב כבוש בגרמניה, מיסו ביפן, זיתים ולימונים כבושים כאן במזרח התיכון. כולם נולדו מאותו צורך פשוט, לאכול טוב גם בעונה שאין בה יבול טרי.</p>
+        <p class="pull">כבישה עובדת בעזרת השתלטות. נותנים לחיידקים הנכונים תנאים טובים, והם משתלטים על הצנצנת לפני שהמזיקים מספיקים להגיע.</p>
+        <p>במאה השנים האחרונות כמעט שכחנו את זה. המקרר נכנס, חומרי השימור נכנסו, והאוכל שלנו נעשה הרבה יותר נקי מחיידקים. גם המעיים שלנו. בשנים האחרונות, ככל שלומדים עוד על המיקרוביום, ההתססה חוזרת. מסתבר שאוכל עם חיידקים חיים עושה טוב למעי ולמערכת החיסון. הסבתות, מתברר, ידעו על מה הן מדברות.</p>
+      </div>
+      <div class="col-img">
+        <div class="imgwrap r-wide">
+          <div class="placeholder"><div><span class="ic">📷</span><small>שוק ירקות / מדף כבושים ישן</small></div></div>
+          <img src="images/history.jpg" alt="שוק ירקות ומדף כבושים" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCIENCE -->
+<section id="science">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">פרק שני</span>
+      <h2>מה זה התססה, ומה זו התססה לקטית</h2>
+      <p>יש כמה משפחות. אנחנו נתעסק בעיקר בלקטית, זאת שהכי קל להתחיל ממנה והכי קשה לפשל בה.</p>
+    </div>
+    <div class="grid g4 reveal" style="margin-bottom:48px">
+      <div class="card"><div class="ic" style="background:var(--green-soft)">🥬</div><h3>לקטית</h3><p>חיידקי חומצת חלב הופכים סוכרים לחומצה לקטית. ככה נולדים כרוב כבוש, מלפפונים, קימצ'י ויוגורט. רוב המתכונים כאן.</p></div>
+      <div class="card"><div class="ic" style="background:#FCF3DF">🍞</div><h3>אלכוהולית</h3><p>שמרים הופכים סוכרים לאלכוהול. ככה מקבלים יין, בירה ולחם מחמצת.</p></div>
+      <div class="card"><div class="ic" style="background:#FBEDE7">🍎</div><h3>אצטית</h3><p>חיידקים הופכים אלכוהול לחומץ. חומץ תפוחים, קומבוצ'ה. יש כאן מתכון.</p></div>
+      <div class="card"><div class="ic" style="background:#F3E8EC">🧀</div><h3>עוֹבְשית</h3><p>פטריות מפרקות חלבונים לאט. מיסו, רוטב סויה, גבינות עם עובש.</p></div>
+    </div>
+    <div class="split flip reveal">
+      <div class="col-img">
+        <div class="imgwrap r-wide">
+          <div class="placeholder green"><div><span class="ic">📷</span><small>תקריב צנצנת עם בועות תסיסה</small></div></div>
+          <img src="images/science.jpg" alt="תקריב צנצנת עם בועות תסיסה" onerror="this.style.display='none'">
+        </div>
+      </div>
+      <div class="col-txt prose">
+        <h3 style="margin-top:0">אז מה קורה בצנצנת?</h3>
+        <p>חיידקי חומצת חלב נמצאים כבר בכל מקום. על עלי הכרוב, על קליפת המלפפון, באוויר ועל הידיים. הם צריכים שלושה דברים כדי לעבוד: לחות, סוכר, וסביבה בלי חמצן.</p>
+        <p>כשלוחצים ירק עם מלח עד שהוא משחרר נוזלים, נותנים להם בדיוק את זה. הם מתחילים לאכול את הסוכר ומשחררים חומצה לקטית. החומצה שומרת על הירק ובאותו זמן נותנת לו את הטעם החמצמץ שכולנו מכירים.</p>
+        <p class="pull" style="font-size:19px">כלל אחד שאסור לשבור: בלי חמצן. הירק תמיד מתחת לנוזל. כל מה שבולט החוצה יעבש.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODS -->
+<section id="methods" class="cream">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">פרק שלישי</span>
+      <h2>שלוש שיטות התססה</h2>
+      <p>כל מתכון כאן עובד באחת מהשלוש. ברגע שמבינים את ההבדל ביניהן, אפשר כבר להמציא לבד.</p>
+    </div>
+    <div class="read">
+      <div class="method reveal"><div class="num" style="background:var(--teal)">1</div><div>
+        <h3>בתמיסת מלח</h3>
+        <p>מכינים מי מלח, בין 2% ל-10% לפי משקל המים, ויוצקים על ירקות קשים שלא משחררים נוזלים מעצמם.</p>
+        <span class="when">מלפפונים · פלפלים · גזר · זרעי חרדל · זיתים</span>
+      </div></div>
+      <div class="method reveal"><div class="num" style="background:var(--green)">2</div><div>
+        <h3>בנוזל של עצמו</h3>
+        <p>מערבבים את הירק החתוך עם מלח, מועכים קצת ומחכים. הוא משחרר את המים שלו, וזה הופך לרוטב ההתססה.</p>
+        <span class="when">כרוב · סלק · שעועית ירוקה · לימון</span>
+      </div></div>
+      <div class="method reveal"><div class="num" style="background:var(--brand)">3</div><div>
+        <h3>בריכוז גבוה</h3>
+        <p>מערבבים את החומר עם מלח רב יחסית, 3% עד 5% ממשקלו, מתסיסים בכלי פתוח-חצי ומערבבים פעם ביום.</p>
+        <span class="when">רוטב פלפלים חריף · ממרחים עוצמתיים</span>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GEAR -->
+<section id="gear">
+  <div class="wrap">
+    <div class="split reveal">
+      <div class="col-txt">
+        <span class="tag">פרק רביעי</span>
+        <h2 style="font-size:clamp(28px,4vw,40px);margin-bottom:8px">הציוד של המתסיס הביתי</h2>
+        <p style="color:var(--muted);margin-bottom:26px;font-size:18px">רשימה קצרה בכוונה. כמעט הכל כבר נמצא אצלכם במטבח.</p>
+        <div class="grid g2">
+          <div class="card"><div class="ic" style="background:rgba(62,155,150,.13)">⚖️</div><h3>משקל מטבח</h3><p>הכלי הכי חשוב כאן. ההתססה עובדת באחוזים, וכמות מדויקת של מלח היא ההבדל בין צנצנת מוצלחת לעובש.</p></div>
+          <div class="card"><div class="ic" style="background:#FBEDE7">🧂</div><h3>מלח גס פשוט</h3><p>מלח ים מקומי גס, בלי יוד ובלי תוספות. זה הכל. אין צורך במלח הימלאיה או בכל מלח יקר אחר.</p></div>
+          <div class="card"><div class="ic" style="background:#FCF3DF">🫙</div><h3>צנצנות זכוכית</h3><p>כל צנצנת מתאימה. מה שחשוב הוא המכסה, שייסגר טוב ושאפשר יהיה לפתוח כדי לשחרר גזים.</p></div>
+          <div class="card"><div class="ic" style="background:var(--green-soft)">🦠</div><h3>חיידקים (כבר יש)</h3><p>הם נמצאים באוויר, על הידיים ועל המזון עצמו. אין מה לקנות. רק לתת להם תנאים טובים.</p></div>
+        </div>
+      </div>
+      <div class="col-img">
+        <div class="imgwrap r-hero">
+          <div class="placeholder mustard"><div><span class="ic">📷</span><small>פלייטליי: משקל, מלח גס וצנצנות זכוכית</small></div></div>
+          <img src="images/gear.jpg" alt="ציוד התססה: משקל, מלח וצנצנות" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MYTHS -->
+<section id="myths" class="cream">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">פרק חמישי</span>
+      <h2>חמישה מיתוסים שכדאי לזרוק</h2>
+      <p>רוב הפחד מהתססה ביתית בא ממידע לא נכון. בואו נסדר את זה.</p>
+    </div>
+    <div class="grid g2 reveal">
+      <div class="myth"><div class="top"><span class="x">✕</span><h3>אסור להכניס ידיים, צריך כפפות</h3></div><div class="bot"><span class="v">✓</span><p><strong>הידיים שלכם בדיוק מה שצריך.</strong> החיידקים שעליהן הם חלק מהצוות. ללוש כרוב ביד היא הדרך הכי טובה לעשות את זה. שוטפים קודם, וזהו.</p></div></div>
+      <div class="myth"><div class="top"><span class="x">✕</span><h3>חייבים לעקר את הצנצנות ברתיחה</h3></div><div class="bot"><span class="v">✓</span><p><strong>שטיפה טובה עם סבון מספיקה לגמרי.</strong> עיקור ברתיחה מיותר כאן. בהתססה אנחנו רוצים סביבה חיה, אז דווקא טוב שיש קצת חיידקים מסביב.</p></div></div>
+      <div class="myth"><div class="top"><span class="x">✕</span><h3>צריך מלח הימלאיה או מלח מיוחד</h3></div><div class="bot"><span class="v">✓</span><p><strong>מלח גס רגיל עובד מצוין.</strong> מלח ים מקומי בלי יוד הוא כל מה שדרוש. הצבע הוורוד לא משנה כלום בתהליך, רק את המחיר.</p></div></div>
+      <div class="myth"><div class="top"><span class="x">✕</span><h3>התססה זה מסובך ומסוכן</h3></div><div class="bot"><span class="v">✓</span><p><strong>זאת אחת הפעולות הבטוחות במטבח.</strong> החומציות שנוצרת מגינה על האוכל. ואם משהו השתבש, החושים יודיעו הרבה לפני: עובש צבעוני, או ריח רע באמת. אז פשוט זורקים.</p></div></div>
+      <div class="myth" style="grid-column:1/-1"><div class="top"><span class="x">✕</span><h3>קונים ירקות מיוחדים להתססה</h3></div><div class="bot"><span class="v">✓</span><p><strong>מתסיסים את מה שיש, בעונה, מהאזור.</strong> ההתססה נולדה כדי להציל אוכל. עודף עגבניות מהשוק, כרוב שמתחיל להתקמט, ליבות תפוחים שעמדו ללכת לפח, כל אלה חומר גלם מצוין. מתסיסים לפי מה שהאדמה נותנת עכשיו.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CALC -->
+<section id="calc">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">פרק שישי</span>
+      <h2>מחשבון המלח</h2>
+      <p>ההתססה עובדת באחוזים. הזינו משקל, בחרו אחוז, ותדעו כמה מלח לשים.</p>
+    </div>
+    <div class="calc reveal">
+      <div class="form">
+        <label>שיטה</label>
+        <div class="seg" id="mode">
+          <button data-mode="brine" class="on">תמיסת מלח</button>
+          <button data-mode="dry">נוזל של עצמו</button>
+        </div>
+        <label id="wlabel">משקל המים (גרם)</label>
+        <input type="number" id="weight" value="1000" min="0" step="50">
+        <label>אחוז מלח</label>
+        <div class="seg small" id="pct">
+          <button data-p="2">2%</button>
+          <button data-p="2.5" class="on">2.5%</button>
+          <button data-p="3">3%</button>
+          <button data-p="5">5%</button>
+          <button data-p="7">7%</button>
+          <button data-p="10">10%</button>
+        </div>
+      </div>
+      <div class="out">
+        <div class="sub">כמות המלח שצריך:</div>
+        <div class="big" id="result">25 <span>גרם</span></div>
+        <div class="sub" id="spoons">בערך כפית וחצי מלח גס</div>
+        <div class="note" id="cnote">תמיסת מלח: שוקלים את המים שמכסים את הירק, ומחשבים מהם את האחוז. 2.5% עדין, 5% בינוני, 7% עד 10% לשימור ארוך.</div>
+      </div>
+    </div>
+    <div class="refgrid reveal">
+      <div class="ref"><div class="k">כרוב, סלק, שעועית</div><div class="val">1.5%–2.5%</div></div>
+      <div class="ref"><div class="k">לימון כבוש</div><div class="val">2%</div></div>
+      <div class="ref"><div class="k">מלפפונים בתמיסה</div><div class="val">5%–7%</div></div>
+      <div class="ref"><div class="k">זרעי חרדל</div><div class="val">7% מהמים</div></div>
+      <div class="ref"><div class="k">זיתים</div><div class="val">10% מהמים</div></div>
+      <div class="ref"><div class="k">רוטב פלפלים</div><div class="val">~3.3%</div></div>
+    </div>
+    <div class="principles prose reveal">
+      <h3>חמישה עקרונות שמספיק לזכור</h3>
+      <p><strong>1. מלח באחוזים, לא בעין.</strong> שוקלים את החומר או את המים, ומחשבים אחוז. כל סוד העקביות נמצא כאן.</p>
+      <p><strong>2. בלי חמצן.</strong> הכל מתחת לנוזל, תמיד. הכי טוב להניח למעלה ליבה של ירק שתחזיק את הכל למטה, ליבת כרוב או כרובית עובדת מצוין. גם כל משקולת אחרת מתאימה.</p>
+      <p><strong>3. טמפרטורת חדר.</strong> 20 עד 25 מעלות זה הטווח הנוח. בקיץ זה מהיר יותר, בחורף לאט יותר.</p>
+      <p><strong>4. משחררים גזים.</strong> ביומיים-שלושה הראשונים פותחים את הצנצנת פעם או פעמיים ביום.</p>
+      <p><strong>5. טועמים, לא סופרים.</strong> הימים הם רק הערכה. החיך שלכם מחליט מתי להעביר למקרר.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RECIPES -->
+<section id="recipes" class="cream">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">פרק שביעי</span>
+      <h2>המתכונים</h2>
+      <p>11 מתכונים, מסודרים לפי נושא. אפשר לסנן לפי סוג ההתססה, או פשוט לגלול.</p>
+    </div>
+    <div class="filters reveal" id="filters">
+      <button class="chip on" data-f="all">הכל</button>
+      <button class="chip" data-f="brine">תמיסת מלח</button>
+      <button class="chip" data-f="self">בנוזל של עצמו</button>
+      <button class="chip" data-f="high">ריכוז גבוה</button>
+      <button class="chip" data-f="acetic">חומץ</button>
+      <button class="chip" data-f="beginner">למתחילים</button>
+    </div>
+    <div class="rgrid" id="rgrid"></div>
+  </div>
+</section>
+
+<!-- DIBS CALLOUT -->
+<section>
+  <div class="wrap">
+    <div class="callout reveal">
+      <div class="imgwrap">
+        <div class="placeholder" style="background:repeating-linear-gradient(45deg,rgba(154,91,114,.05) 0 14px,transparent 14px 28px),#F3E8EC"><div><span class="ic">📷</span><small>דיבס נמזג בכפית</small></div></div>
+        <img src="images/dibs.jpg" alt="דיבס דבש ענבים נמזג בכפית" onerror="this.style.display='none'">
+      </div>
+      <div class="c-txt">
+        <span class="tag">המתיקה של הסדנה</span>
+        <h2>דיבס. דבש ענבים בלי טיפת סוכר.</h2>
+        <p>רק ענבים, שמצטמצמים שעות ארוכות לסירופ כהה וסמיך. ממתיק עתיק שיודע להישמר שנה-שנתיים גם בלי מקרר. את זה נכין ונטעם יחד בסדנה.</p>
+        <button class="btn btn-primary" onclick="openModal('dibs')">למתכון המלא 🍇</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="news reveal">
+      <h2>רוצים להתחיל?</h2>
+      <p>השאירו מייל ואשלח את המדריך המודפס, תזכורת לסדנה, ומדי פעם מתכון חדש.</p>
+      <form onsubmit="this.querySelector('input').value='תודה! נהיה בקשר';return false">
+        <input type="email" placeholder="המייל שלך" aria-label="מייל">
+        <button class="btn btn-primary" type="submit">שלחו לי</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="bg" id="modalbg"></div>
+  <div class="sheet" id="sheet"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <h3>על הבלוג</h3>
+    <p>המדריך נכתב כחומר ליווי לסדנת התססה ביתית. מתכון הדיבס בעקבות <a class="link" href="https://www.efratshaked.com/post/דיבס-דבש-ענבים-מהעולם-העתיק-ועד-ימינו" target="_blank" rel="noopener">אפרת שקד</a>.</p>
+    <div class="flinks">
+      <a href="https://mazon-izun.com/" target="_blank" rel="noopener">מקור והשראה למתכונים →</a>
+    </div>
+    <p class="fnote">נבנה כחומר לסדנה. כל הזכויות על המתכונים שמורות למקורות שלהם.</p>
+  </div>
+</footer>
+
+<script>
+const TYPE={brine:'תמיסת מלח',self:'בנוזל של עצמו',high:'ריכוז גבוה',acetic:'חומץ',none:'בלי התססה'};
+const TCLASS={brine:'brine',self:'self',high:'high',acetic:'acetic',none:'none'};
+const recipes=[
+ {id:'cabbage',img:'recipe-cabbage',phl:'כרוב כבוש בצנצנת',tint:'green',cat:'ירקות',type:'self',f:['self','beginner'],title:'כרוב כבוש קלאסי',
+  desc:'המתכון הראשון שכדאי לנסות. אם הכרוב מצליח, כל השאר כבר מרגיש פשוט.',
+  tags:[['self'],['למתחילים','meta']],ftime:'10 ימים',
+  meta:[['זמן','10 ימים'],['מלח','2% מהכרוב'],['רמה','קלה']],
+  ing:['1 ק״ג כרוב טרי (לא מקרר, הוא משחרר יותר נוזל)','15 עד 25 גרם מלח גס (1.5%–2.5% מהכרוב)'],
+  steps:['חוצים את הכרוב ומוציאים את הליבה הקשה ואת העלים הפגומים.','שוקלים את הכרוב הנקי ומחשבים את כמות המלח. 2% זה אמצע טוב.','פורסים דק. ככל שדק יותר, הוא משחרר נוזל מהר יותר.','מעבירים לקערה, מפזרים את המלח, ולשים ביד בכוח כמו בצק.','אחרי כעשר דקות הכרוב מתחיל להזיע. משאירים שעתיים.','דוחסים לצנצנת חזק, עד שהנוזל עולה מעל הכרוב.','מניחים למעלה ליבה של ירק שתחזיק את הכרוב מתחת לנוזל. ליבת הכרוב עצמה או ליבת כרובית עובדות הכי טוב, וגם כל משקולת אחרת מתאימה.','סוגרים. ביומיים-שלושה הראשונים פותחים פעמיים ביום כדי לשחרר גזים.'],
+  tip:'אחרי עשרה ימים הוא מוכן. במקרר הוא יחזיק חודשים, והטעם רק משתפר עם הזמן.'},
+
+ {id:'cucumber',img:'recipe-cucumber',phl:'מלפפונים כבושים',tint:'',cat:'ירקות',type:'brine',f:['brine','beginner'],title:'מלפפונים כבושים במלח',
+  desc:'המלפפון החמוץ של פעם. רק מלח, מים וזמן, בלי חומץ ובלי סוכר.',
+  tags:[['brine'],['למתחילים','meta']],ftime:'10–21 ימים',
+  meta:[['זמן','10–21 ימים'],['מלח','5%–7% מהמים'],['רמה','קלה']],
+  ing:['מלפפונים קטנים, רצוי משדה ולא מחממה','מים (כמה שצריך כדי לכסות)','מלח גס: 5% עד 7% ממשקל המים','שום, שמיר, עלי גפן או עלי תפוח עץ (אופציונלי, לפריכות)'],
+  steps:['דוחסים את המלפפונים לצנצנת חזק. ככל שצפוף יותר, טוב יותר.','מוסיפים תבלינים בין המלפפונים: שום, שמיר, גרגרי פלפל שחור.','מניחים את הצנצנת על המשקל ומאפסים.','יוצקים מים עד שהמלפפונים מכוסים לגמרי.','שוקלים את המים שנכנסו, מחשבים מהם 5%–7% מלח ומוסיפים.','מערבבים עד שהמלח נמס, וסוגרים את הצנצנת.','בימים הראשונים פותחים מדי פעם כדי לשחרר גזים.'],
+  tip:'עלה גפן או עלה תפוח עץ למעלה עוזר לשמור על הפריכות. אפשר לטעום כבר אחרי עשרה ימים, אבל הטעם המלא מגיע אחרי שבועיים-שלושה.'},
+
+ {id:'roots',img:'recipe-roots',phl:'שורשים כבושים אדומים',tint:'brand',cat:'ירקות',type:'self',f:['self'],title:'שורשים כבושים',
+  desc:'סלק, גזר ובצל. מהיר, יוצא בצבע אדום עז, והולך נהדר עם פיתה ואורז.',
+  tags:[['self'],['מהיר','meta']],ftime:'5–7 ימים',
+  meta:[['זמן','5–7 ימים'],['מלח','2 כפות לק״ג'],['רמה','קלה']],
+  ing:['1 ק״ג שורשים: סלק, בצל וגזר (חצי סלק, רבע גזר, רבע בצל)','2 כפות מלח ים','תבלינים לבחירה: כמון, פלפל אנגלי, גרגרי כוסברה, עלה דפנה'],
+  steps:['מקלפים ומגרדים את השורשים על פומפיה גסה.','מוסיפים מלח ותבלינים, ולשים בידיים עד שהשורשים משחררים נוזלים.','מעבירים לצנצנת ודוחסים חזק, ומניחים למעלה ליבה של ירק (ליבת כרוב או כרובית הכי טובה) או כל משקולת אחרת.','סוגרים ומשאירים בחום ובאור עקיף.','טועמים כל יום-יומיים. כשהטעם חזק כמו שאתם אוהבים, מעבירים למקרר.'],
+  tip:'בקיץ הישראלי זה מתסיס מהר, לפעמים שלושה ימים מספיקים. בחורף זה ייקח בערך שבוע.'},
+
+ {id:'greenbean',img:'recipe-greenbean',phl:'שעועית ירוקה מותססת',tint:'green',cat:'ירקות',type:'self',f:['self'],title:'שעועית ירוקה מותססת',
+  desc:'מתכון במסורת גרמנית. קצת יותר עבודה, אבל הטעם שווה. יוצא ירוק, מלוח, חמצמץ ופריך.',
+  tags:[['self']],ftime:'שבוע-שבועיים',
+  meta:[['זמן','שבוע-שבועיים'],['מלח','2%'],['רמה','בינונית']],
+  ing:['תרמילי שעועית ירוקה טריים','מלח גס: 2% ממשקל השעועית'],
+  steps:['פורסים את התרמילים דק לרוחב, כך שחוצים את הזרעים שבפנים.','שוקלים את השעועית הפרוסה (מאפסים את המשקל לפני).','מוסיפים 2% מלח. על 500 גרם, 10 גרם מלח.','מערבבים היטב בידיים.','מחכים כשעתיים, עד שהפרוסות מתרככות ומשחררות נוזל.','דוחסים לצנצנת עם הנוזל, ואם צריך מניחים למעלה ליבה של ירק (ליבת כרוב או כרובית הכי טובה), או כל משקולת אחרת, שתחזיק את השעועית מתחת לנוזל.','סוגרים. ביומיים-שלושה הראשונים פותחים פעמיים ביום כדי לשחרר גזים.'],
+  tip:'נהדר בסלט, בתוך כריך, או ישר מהצנצנת.'},
+
+ {id:'kimchi',img:'recipe-kimchi',phl:'קימצ׳י מקומי אדום',tint:'brand',cat:'ירקות',type:'brine',f:['brine'],title:'קימצ׳י בגרסה מקומית',
+  desc:'הקימצ׳י הקוריאני, מותאם לחומרי הגלם שיש כאן. חריף, עז, ומשתפר עם החודשים.',
+  tags:[['brine'],['מורכב','meta']],ftime:'4 ימים + חודש',
+  meta:[['זמן','4 ימים + חודש'],['כלי','צנצנת 2 ל׳'],['רמה','בינונית']],
+  ing:['כרוב סיני או כרוב לבן (ראש בינוני)','1 פלפל אדום','ראש שום שלם','צרור שמיר','2 כפיות פפריקה חריפה','1 כפית רוטב דגים (אופציונלי, לעומק אומאמי)','חתיכת ג׳ינג׳ר באורך אגודל, מגוררת','חצי כפית כורכום','מי מלח: כף מלח שטוחה לכל כוס מים'],
+  steps:['פורסים את הכרוב לרצועות ואת הפלפל לקוביות.','כותשים את השום ומגוררים את הג׳ינג׳ר.','מערבבים את כל התבלינים יחד למחית.','מערבבים את המחית עם הכרוב והפלפל בידיים, עד שהכל מצופה אדמדם.','דוחסים לצנצנת חזק.','מכינים מי מלח (כף לכל כוס) ויוצקים עד כיסוי.','מניחים את השמיר למעלה כשכבת הגנה, וסוגרים חזק.','3–4 ימים בטמפרטורת חדר, פותחים כל יום. אחר כך מעבירים למקרר.'],
+  tip:'הוא נעשה ממש טוב רק אחרי חודש במקרר, וימשיך להבשיל לאורך שנה. בהתחלה הריח חזק, וזה בסדר גמור.'},
+
+ {id:'lemon',img:'recipe-lemon',phl:'לימון כבוש',tint:'mustard',cat:'פירות וזיתים',type:'self',f:['self','beginner'],title:'לימון כבוש',
+  desc:'חומר גלם שמלווה מטבחים מצפון אפריקה ועד פרס. ממליחים, מחכים, ומוסיפים כמעט לכל דבר.',
+  tags:[['self'],['למתחילים','meta']],ftime:'10 ימים',
+  meta:[['זמן','10 ימים'],['מלח','2%'],['רמה','קלה']],
+  ing:['לימונים (כמה שיכנסו לצנצנת)','מלח: 2% ממשקל הלימונים'],
+  steps:['חוצים כל לימון לשניים, ופורסים כל חצי לפרוסות דקות, עם הקליפה.','מעבירים לקערה ושוקלים (מאפסים את המשקל לפני).','מוסיפים 2% מלח. על קילו, 20 גרם.','מערבבים בעדינות בידיים, ונותנים לשבת כשעתיים.','מעבירים לצנצנת, דוחסים, ומוסיפים את הנוזל מהקערה.','דואגים שהנוזל מכסה הכל, ואם צריך מניחים למעלה ליבה של ירק (ליבת כרוב או כרובית הכי טובה), או כל משקולת אחרת.','סוגרים חזק. בימים הראשונים פותחים פעם או פעמיים ביום.'],
+  tip:'קוצצים על דגים, מערבבים בקציצות, חותכים לסלט או מוסיפים לטאז׳ין. אפילו פרוסה אחת מוסיפה עומק שלם לתבשיל.'},
+
+ {id:'olives',img:'recipe-olives',phl:'זיתים כבושים',tint:'green',cat:'פירות וזיתים',type:'brine',f:['brine','high'],title:'זיתים כבושים',
+  desc:'דורשים סבלנות של שנה שלמה. במסורת הצפון-אפריקאית היו מכינים זיתים כשנולדה בת בבית, ונותנים לחתן את הצנצנת ביום החתונה.',
+  tags:[['brine'],['ארוך','meta']],ftime:'שנה–שנה וחצי',
+  meta:[['זמן','שנה–שנה וחצי'],['מלח','10% מהמים'],['רמה','קלה']],
+  ing:['זיתים ירוקים או חצי-בשלים','מים','מלח גס: 10% ממשקל המים (100 גרם לכל ליטר)'],
+  steps:['מנקים את הזיתים מאבק ומחלקים פגומים.','מעבירים אותם לצנצנת.','מכינים מי מלח: 100 גרם מלח לכל ליטר מים, ומערבבים עד שנמס.','יוצקים על הזיתים עד כיסוי מלא.','סוגרים חזק. בימים הראשונים (3–4) פותחים פעם ביום.','שומרים במקום קר וחשוך בטמפרטורת חדר.'],
+  tip:'מוכנים אחרי שנה עד שנה וחצי, וככל שמחכים יותר הם טובים יותר. עובש על פני הצנצנת אומר שהיא לא נסגרה אטום. את מי המלח שנשארים אפשר לשמור לסבב הבא.'},
+
+ {id:'hotsauce',img:'recipe-hotsauce',phl:'רוטב פלפלים חריף',tint:'brand',cat:'רטבים ותבלינים',type:'high',f:['high'],title:'רוטב פלפלים חריף מותסס',
+  desc:'החריף הביתי. עומד על המדף שנים, חריפות עמוקה וטעם של אש.',
+  tags:[['high']],ftime:'5–10 ימים',
+  meta:[['זמן','5–10 ימים'],['מלח','3.3%'],['רמה','בינונית']],
+  ing:['5 ק״ג פלפלים אדומים חריפים (אפשר פחות, רק שמרו על היחס)','166 גרם מלח (3.3% ממשקל הפלפלים)'],
+  steps:['טוחנים את הפלפלים, הכל, כולל גרעינים וגבעולים, למרקם גס.','מוסיפים מלח ומערבבים היטב.','מעבירים לכלי פתוח-חצי, מכוסה במפית רטובה או במכסה לא הדוק.','מערבבים כל יום (בקיץ פעמיים), ודוחפים בחזרה את מה שעולה למעלה.','אחרי 5–10 ימים, כשהתערובת מתייצבת, מעבירים לכלי אטום.'],
+  tip:'שכבה לבנה דקה למעלה בזמן ההתססה היא בסדר, פשוט מערבבים אותה פנימה. עובש צבעוני, ירוק או שחור, אומר שזורקים את הכל. נשמר שנה לפחות.'},
+
+ {id:'mustard',img:'recipe-mustard',phl:'זרעי חרדל מותססים',tint:'mustard',cat:'רטבים ותבלינים',type:'brine',f:['brine'],title:'זרעי חרדל מותססים',
+  desc:'תוספת קטנה ועוצמתית לסלט, ללחם ולרטבים. שלוש דקות עבודה, וחודש של המתנה.',
+  tags:[['brine']],ftime:'חודש',
+  meta:[['זמן','חודש'],['מלח','7% מהמים'],['רמה','קלה']],
+  ing:['זרעי חרדל (כדי חצי צנצנת)','מים (פי שניים מנפח הזרעים)','מלח: 7% ממשקל המים'],
+  steps:['ממלאים חצי מהצנצנת בזרעי חרדל.','מוסיפים מים בכמות כפולה מנפח הזרעים.','מחשבים 7% מלח ממשקל המים, מוסיפים ומערבבים.','סוגרים. בימים הראשונים (3–4) פותחים פעם ביום.'],
+  tip:'בזמן ההתססה הזרעים מוציאים ריח חזק, קצת גופריתי, וזה תקין. אחר כך אפשר לתבל בהם סלט, לערבב בלחם מחמצת, או לייבש ולטחון לתבלין.'},
+
+ {id:'vinegar',img:'recipe-vinegar',phl:'חומץ תפוחים ביתי',tint:'brand',cat:'משקאות ומתוקים',type:'acetic',f:['acetic','beginner'],title:'חומץ תפוחים מליבות',
+  desc:'אוכלים תפוח, וזורקים את הליבה והקליפות לתוך צנצנת מים. ככה פשוט מתחיל חומץ.',
+  tags:[['acetic'],['הצלת מזון','meta']],ftime:'שבועות–חודשים',
+  meta:[['זמן','שבועות–חודשים'],['חומרים','מים + שאריות'],['רמה','קלה']],
+  ing:['מים','שאריות תפוחים: ליבות, קליפות, חתיכות שעמדו ללכת לפח'],
+  steps:['ממלאים צנצנת זכוכית גדולה עד חציה במים.','בכל פעם שאוכלים תפוח, זורקים את הליבה והקליפות פנימה.','מכסים בבד נושם (פיסת בד וגומייה), לא במכסה אטום.','מערבבים מדי פעם. שכבה לבנה דקה למעלה היא חיידקי החומץ, והיא רצויה.','אחרי כמה שבועות מסננים את הנוזל לצנצנת אחרת, שוב עם בד נושם.','נותנים עוד זמן, עד שהטעם נעשה חמצמץ-חומצי. מעבירים לבקבוקים סגורים.'],
+  tip:'לחומץ חזק יותר אפשר לסחוט תפוחים במסחטה איטית, להתסיס את המיץ בלי מים בכלי רחב, ולערבב כל יום. נשמר שנים.'},
+
+ {id:'dibs',img:'recipe-dibs',phl:'דיבס דבש ענבים',tint:'',cat:'משקאות ומתוקים',type:'none',f:['beginner'],title:'דיבס (דבש ענבים)',
+  desc:'המתיקה של הסדנה. רק ענבים, שמצטמצמים שעות ארוכות לסירופ כהה וסמיך. נשמר שנה-שנתיים. את זה נטעם יחד.',
+  tags:[['none'],['לסדנה','meta'],['בלי סוכר','meta']],ftime:'שעות אחדות',
+  meta:[['זמן','שעות אחדות'],['חומרים','ענבים בלבד'],['שמירה','שנה-שנתיים']],
+  ing:['ענבים בשלים ומתוקים (כמה שיש)'],
+  steps:['מוציאים את המיץ מהענבים: דריכה ברגליים, מסחטה ידנית, או מסחטת מיצים חשמלית. מסננים סינון ראשוני.','מביאים את המיץ לרתיחה ומסירים את הקצף שעולה.','מצמצמים על אש נמוכה, עד שהנוזל יורד לחצי מהכמות המקורית.','בודקים מוכנות: טיפה על צלחת קרה צריכה להישאר צמיגה ולא להתפזר.','מעבירים לצנצנות מעוקרות.'],
+  tip:'בתנאים טובים הוא נשמר שנה עד שנתיים גם בלי מקרר. נהדר על יוגורט, על טחינה, על לחם, או פשוט בכפית. המתכון בעקבות אפרת שקד.'}
+];
+
+const grid=document.getElementById('rgrid');
+function tagHTML(t){const key=t[0];const cls=t[1]||TCLASS[key]||'meta';const label=TYPE[key]||key;return `<span class="t ${cls}">${label}</span>`;}
+function imgBlock(r,cls){return `<div class="imgwrap ${cls}">
+  <div class="placeholder ${r.tint}"><div><span class="ic">📷</span><small>${r.phl}</small></div></div>
+  <img src="images/${r.img}.jpg" alt="${r.phl}" onerror="this.style.display='none'"></div>`;}
+function render(filter){
+  grid.innerHTML='';
+  recipes.filter(r=>filter==='all'||r.f.includes(filter)).forEach(r=>{
+    const el=document.createElement('div');el.className='rcard';el.onclick=()=>openModal(r.id);
+    el.innerHTML=`<div style="position:relative"><span class="cat">${r.cat}</span>${imgBlock(r,'r-card')}</div>
+      <div class="body"><h3>${r.title}</h3><div class="desc">${r.desc}</div>
+      <div class="tags">${r.tags.map(tagHTML).join('')}</div>
+      <div class="foot">⏳ ${r.ftime}</div></div>`;
+    grid.appendChild(el);
+  });
+}
+render('all');
+document.getElementById('filters').addEventListener('click',e=>{
+  if(!e.target.classList.contains('chip'))return;
+  document.querySelectorAll('#filters .chip').forEach(c=>c.classList.remove('on'));
+  e.target.classList.add('on');render(e.target.dataset.f);
+});
+
+const modal=document.getElementById('modal'),sheet=document.getElementById('sheet');
+function openModal(id){
+  const r=recipes.find(x=>x.id===id);
+  sheet.innerHTML=`<button class="close" id="closeb">✕</button>
+   <div class="hero-ph">${imgBlock(r,'')}</div>
+   <div class="hd">
+     <div class="tags">${r.tags.map(tagHTML).join('')}</div>
+     <h2>${r.title}</h2>
+     <div class="meta-row">${r.meta.map(m=>`<div><b>${m[1]}</b><span>${m[0]}</span></div>`).join('')}</div>
+   </div>
+   <div class="bd">
+     <div class="sect-t">🧺 חומרים</div>
+     <ul class="ing">${r.ing.map(i=>`<li>${i}</li>`).join('')}</ul>
+     <div class="sect-t">👐 הכנה</div>
+     <ul class="steps">${r.steps.map(s=>`<li>${s}</li>`).join('')}</ul>
+     <div class="tip"><b>טיפ:</b> ${r.tip}</div>
+     <button class="btn printbtn" onclick="window.print()">🖨️ הדפסת המתכון</button>
+   </div>`;
+  modal.classList.add('open');document.body.style.overflow='hidden';
+  document.getElementById('closeb').onclick=closeModal;
+}
+function closeModal(){modal.classList.remove('open');document.body.style.overflow='';}
+document.getElementById('modalbg').onclick=closeModal;
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+let mode='brine',pct=2.5;
+const weightEl=document.getElementById('weight'),resEl=document.getElementById('result'),
+      spoonsEl=document.getElementById('spoons'),wlabel=document.getElementById('wlabel'),cnote=document.getElementById('cnote');
+function calc(){
+  const w=parseFloat(weightEl.value)||0;
+  const grams=Math.round(w*pct/100*10)/10;
+  resEl.innerHTML=`${grams} <span>גרם</span>`;
+  const tsp=grams/6;let s;
+  if(tsp<0.4)s='פחות מחצי כפית מלח גס';
+  else if(tsp<10)s=`בערך ${tsp.toFixed(tsp<3?1:0).replace('.0','')} כפיות מלח גס`;
+  else s=`בערך ${Math.round(tsp/3)} כפות מלח גס`;
+  spoonsEl.textContent=s;
+}
+document.getElementById('mode').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON')return;
+  document.querySelectorAll('#mode button').forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');mode=e.target.dataset.mode;
+  if(mode==='brine'){wlabel.textContent='משקל המים (גרם)';cnote.textContent='תמיסת מלח: שוקלים את המים שמכסים את הירק, ומחשבים מהם את האחוז. 2.5% עדין, 5% בינוני, 7% עד 10% לשימור ארוך.';}
+  else{wlabel.textContent='משקל הירק (גרם)';cnote.textContent='נוזל של עצמו: שוקלים את הירק החתוך ומחשבים אחוז ממשקלו. 1.5% עד 2.5% הוא הטווח הקלאסי לכרוב, לסלק ולשעועית.';}
+  calc();
+});
+document.getElementById('pct').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON')return;
+  document.querySelectorAll('#pct button').forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');pct=parseFloat(e.target.dataset.p);calc();
+});
+weightEl.addEventListener('input',calc);calc();
+
+document.getElementById('burger').onclick=()=>document.getElementById('navlinks').classList.toggle('show');
+document.querySelectorAll('#navlinks a').forEach(a=>a.onclick=()=>document.getElementById('navlinks').classList.remove('show'));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
